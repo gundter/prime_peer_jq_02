@@ -21,12 +21,19 @@ $(document).ready(function(){
 		var monthlyCost = totalCost / 12;
 		var roundedMonthly = roundCents(monthlyCost);
 
-				var toBeAppended = "<div class='row' id="+propertyId+"><div class='cell'>Property ID: " + propertyId + "</div><div class='cell'>" + totalSquareFt + " Sq.Ft.</div><div class='cell'>$" + costPerSquareFt + "/Sq.Ft.</div><div class='cell'>Total Cost: $" + totalCost + "</div><div class='cell'>Monthly Cost: $" + roundedMonthly + "</div><button class='removeButton'>Remove</button></div>";
+		var toBeAppended = "<div class='row' id="+propertyId+">" +
+								"<div class='cell'>Property ID: " + propertyId + "</div>" +
+								"<div class='cell'>" + totalSquareFt + " Sq.Ft.</div>" +
+								"<div class='cell'>$" + costPerSquareFt + "/Sq.Ft.</div>" +
+								"<div class='cell'>Total Cost: $" + totalCost + "</div>" +
+								"<div class='cell'>Monthly Cost: $" + roundedMonthly + "</div>" +
+								"<button class='removeButton'>Remove</button>" +
+							"</div>";
 		
 		//Slide down has a hard time with tables and how to handle children, so you need to throw a div around it
 
 		var table = $("#propertyTable");
-		if ($("#propertyTable").contents().length == 0 ){	
+		if (table.contents().length == 0 ){
 			table.prepend(toBeAppended);
 		}else {
 			table.append(toBeAppended);
